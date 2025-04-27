@@ -1,0 +1,161 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+    Avaliação 2 Nicolas 09/04/2025
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-item>
+    <p>atividade 01</p>
+  </ion-item>
+  <br>
+  <ion-item>
+    <p>Defina o valor do emprestimo desejado</p>
+  </ion-item>
+<ion-item style="text-align: center;">
+
+  <ion-range min="100" max="1000"
+   [(ngModel)]="valorEmp">
+
+  </ion-range>
+</ion-item>
+<ion-item>
+
+<ion-label>{{valorEmp}} Reais</ion-label>
+</ion-item>
+
+
+
+<br><br>
+
+
+
+<ion-item>
+  <p>Defina a porcentagem de juros do emprestimo</p>
+</ion-item>
+<ion-item style="text-align: center;">
+
+<ion-range min="12" max="25"
+ [(ngModel)]="taxa">
+
+</ion-range>
+</ion-item>
+<ion-item>
+
+<ion-label>{{taxa}}%</ion-label>
+</ion-item>
+
+
+<br><br>
+
+
+<ion-item>
+  <p>Defina a quantidade de meses a ser pago</p>
+</ion-item>
+<ion-item style="text-align: center;">
+
+<ion-range min="1" max="120"
+ [(ngModel)]="prazo">
+
+</ion-range>
+</ion-item>
+<ion-item>
+
+<ion-label>{{prazo}} meses</ion-label>
+</ion-item>
+
+<ion-item><ion-button (click)="calcularEmpres()">Calcular</ion-button></ion-item>
+
+<ion-item style="text-align: center;"><ion-label>valor mensal a ser pago: R$ {{total}} </ion-label></ion-item>
+<ion-item style="text-align: center;"><ion-label>valor total a ser pago: R$ {{valorEmp2}}</ion-label></ion-item>
+<ion-label></ion-label>
+
+
+
+
+
+<br><br><br><br><br><br><br>
+
+<ion-alert
+  trigger="descAlert"
+  header="Valor inicial: {{valorProd}}"
+  subHeader="o valor do desconto é de:  {{valorDesconto}}%"
+  message="o Produto com desconto fica: R$ {{valorTotal}}"
+  [buttons]="alertButtons"
+></ion-alert>
+
+<ion-item>
+  <p>atividade 02</p>
+</ion-item>
+<br>
+<ion-item>
+  <p>Defina o valor do item e a porcentagem do desconto!</p>
+</ion-item>
+<ion-item>
+  <ion-input label="Insira o valor do produto" labelPlacement="floating" placeholder="00,00" [(ngModel)]="valorProd"></ion-input>
+</ion-item>
+<ion-item>
+
+  <ion-range min="1" max="100"
+   [(ngModel)]="valorDesconto" (ionChange)="calcularDesconto()" id="descAlert">
+
+  </ion-range>
+  
+</ion-item>
+<ion-item style="text-align: center;">
+<ion-label>{{valorDesconto}}%</ion-label>
+</ion-item>
+<ion-item style="text-align: center;">
+  <ion-label> Valor inicial: {{valorProd}} <br>
+   o valor do desconto é de: {{valorDesconto}}% <br> <br>
+    o valor do Produto com desconto fica: R$ {{valorTotal}}</ion-label>
+  </ion-item>
+<!-- <ion-item style="text-align: center;"><ion-label>{{valorDesconto}}</ion-label></ion-item> -->
+
+
+
+
+
+
+ <br><br><br><br><br><br><br>
+
+
+
+ <ion-item>
+  <p>atividade 03</p>
+</ion-item>
+<br>
+<ion-item>
+  <p>Estadia em um hotel</p>
+</ion-item>
+
+<ion-item>
+  <ion-input label="Insira o Numero de diarias desejadas" labelPlacement="floating" placeholder="00,00" [(ngModel)]="diariasDj"></ion-input>
+</ion-item>
+<br>
+<ion-item>
+  <p>Escolha o tipo de quarto</p>
+</ion-item>
+<ion-item><ion-radio-group [(ngModel)]="resultDiario">
+  <ion-radio value="economico">Econômico: R$ 150,00</ion-radio><br />
+  <ion-radio value="padrao">Padrão: R$ 250,00</ion-radio><br />
+  <ion-radio value="luxo">Luxo: R$ 400,00</ion-radio><br />
+
+</ion-radio-group></ion-item>
+<br>
+<ion-item>
+  <p>Escolha o tipo de refeição</p>
+</ion-item>
+<ion-item><ion-radio-group [(ngModel)]="resultRefeicao">
+  <ion-radio value="semRefeicao">Sem Refeição: R$ 0,00</ion-radio><br />
+  <ion-radio value="cafeManha">Café da Manhã: R$ 30,00</ion-radio><br />
+  <ion-radio value="meiaPensao">Meia Pensão (Café e Jantar): R$ 70,00</ion-radio><br />
+  <ion-radio value="pensaoCompleta">Pensão Completa (Café, Almoço e Jantar): R$ 120,00</ion-radio>
+
+</ion-radio-group></ion-item>
+<ion-item><ion-button (click)="calcularEstadia()">calcular valor</ion-button></ion-item>
+
+<ion-item style="text-align: center;"><ion-label>valor total a ser pago: R$ {{valorHotel}} </ion-label></ion-item>
+</ion-content>
